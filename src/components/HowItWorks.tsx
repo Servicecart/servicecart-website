@@ -107,32 +107,40 @@ const HowItWorks = () => {
                 cardRefs.current[index] = el
               }}
               data-animate-id={`card-${index}`}
-              className={`bg-[#3E2061] rounded-2xl p-6 md:p-8 flex flex-col items-center transition-all duration-700 ${
-                visibleElements.has(`card-${index}`)
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              className="overflow-hidden flex flex-col transition-all duration-700"
+              style={{
+                borderRadius: '32px',
+                backgroundColor: '#3E2061',
+                transitionDelay: `${index * 150}ms`,
+                opacity: visibleElements.has(`card-${index}`) ? 1 : 0,
+                transform: visibleElements.has(`card-${index}`) ? 'translateY(0)' : 'translateY(32px)',
+              }}
             >
-              {/* Step Label Pill */}
-              <div className="bg-[#F3E8FF] rounded-full px-4 py-2 mb-4">
-                <p className="text-sm md:text-base font-semibold text-[#3E2061]">
-                  Step {step.number}
+              {/* Top content with padding */}
+              <div className="px-6 md:px-8 pt-6 md:pt-8 pb-4 flex flex-col items-center">
+                {/* Step Label Pill */}
+                <div className="bg-[#F3E8FF] rounded-full px-4 py-2 mb-4">
+                  <p className="text-sm md:text-base font-semibold text-[#3E2061]">
+                    Step {step.number}
+                  </p>
+                </div>
+
+                {/* Description */}
+                <p className="text-white text-base md:text-lg font-medium text-center">
+                  {step.description}
                 </p>
               </div>
 
-              {/* Description */}
-              <p className="text-white text-base md:text-lg font-medium text-center mb-6">
-                {step.description}
-              </p>
-
-              {/* Phone Mock-up */}
-              <div className="flex-1 flex items-center justify-center w-full mt-auto">
+              {/* Phone Mock-up at bottom with no gap */}
+              <div className="mt-auto w-full flex justify-center">
                 <img
                   src={step.image}
                   alt={`Step ${step.number}`}
-                  className="max-w-full h-auto object-contain rounded-xl shadow-2xl transition-transform duration-700 hover:scale-105"
-                  style={{ filter: 'drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3))' }}
+                  className="h-auto object-contain shadow-2xl transition-transform duration-700 hover:scale-105"
+                  style={{
+                    filter: 'drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3))',
+                    maxWidth: '85%',
+                  }}
                 />
               </div>
             </div>

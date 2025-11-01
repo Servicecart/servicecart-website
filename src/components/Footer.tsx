@@ -16,10 +16,10 @@ const Footer = () => {
                 Join us as a Provider
               </a>
               <a href="#" className="text-white text-base font-normal hover:opacity-80 transition-opacity whitespace-nowrap">
-                Privacy Policy
+                Terms of Use
               </a>
               <a href="#" className="text-white text-base font-normal hover:opacity-80 transition-opacity whitespace-nowrap">
-                Terms & Conditions
+                Privacy Policy
               </a>
             </div>
 
@@ -51,7 +51,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section - Contact Information */}
-        <div className="border-t border-gray-600/50 pt-20 pb-8">
+        <div className="border-t border-gray-600/50 pt-20 pb-12">
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-16 text-white">
               We're just one call away
@@ -86,6 +86,32 @@ const Footer = () => {
               >
                 <Mail className="w-6 h-6 text-[#281A3B] flex-shrink-0" />
                 <span className="text-base md:text-lg font-semibold text-[#281A3B]">support@myservicecart.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Footer Bottom - Copyright and Policy Links - Full Width */}
+      <div className="border-t border-gray-700/50 pt-6 pb-8 w-full">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
+            {/* Left Side - Copyright */}
+            <div className="text-white text-sm md:text-base order-2 md:order-1">
+              © 2025 XNOTCH SERVICECART PVT LTD. All rights reserved.
+            </div>
+
+            {/* Right Side - Policy Links */}
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 md:gap-6 text-white text-sm md:text-base order-1 md:order-2">
+              <a href="#" className="hover:opacity-80 transition-opacity whitespace-nowrap">
+                Equal Opportunity Policy
+              </a>
+              <a href="#" className="hover:opacity-80 transition-opacity whitespace-nowrap">
+                Refund & Cancellation Policy
+              </a>
+              <a href="#" className="hover:opacity-80 transition-opacity whitespace-nowrap">
+                Vulnerability Disclosure Policy
               </a>
             </div>
           </div>

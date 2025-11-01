@@ -8,7 +8,6 @@ import WhyChooseUs from './components/WhyChooseUs'
 import WhyJoinUs from './components/WhyJoinUs'
 import Academy from './components/Academy'
 import DownloadApp from './components/DownloadApp'
-import JoinProvider from './components/JoinProvider'
 import InstagramReels from './components/InstagramReels'
 import GetHomeServicesToday from './components/GetHomeServicesToday'
 import FAQ from './components/FAQ'
@@ -24,12 +23,13 @@ function App() {
       <HowItWorks />
       <Services />
       <WhyChooseUs />
-      <Academy />
+      
       <DownloadApp />
-      <JoinProvider />
+      <Academy />
       <WhyJoinUs />
       <InstagramReels />
       <GetHomeServicesToday />
+     
       <FAQ />
       <Footer />
     </div>

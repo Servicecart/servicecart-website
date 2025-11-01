@@ -81,7 +81,7 @@ const InstagramReels = () => {
 
   // Continuous auto-scroll carousel
   useEffect(() => {
-    const container = scrollContainerRef.current
+          const container = scrollContainerRef.current
     if (!container) return
 
     let animationFrameId: number | null = null
@@ -99,7 +99,7 @@ const InstagramReels = () => {
       const singleSetWidth = container.scrollWidth / 2
 
       const scroll = () => {
-        if (container) {
+              if (container) {
           scrollPosition += scrollSpeed
           container.scrollLeft = scrollPosition
 
@@ -163,6 +163,17 @@ const InstagramReels = () => {
   return (
     <section className="py-16 md:py-20 bg-white overflow-hidden" style={{ minHeight: '600px' }}>
       <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <div className="text-center mb-12 md:mb-16">
+          {/* Main Title - Creative Marketing Style */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#3E2061] mb-4 leading-tight">
+            See Why Everyone's<br className="hidden md:block" /> Talking About Servicecart
+          </h2>
+          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+            The trusted platform for quality home services, trusted by thousands
+          </p>
+        </div>
+
         {/* Continuous Scrolling Carousel */}
         <div
           ref={scrollContainerRef}
@@ -260,14 +271,14 @@ const InstagramReels = () => {
                       src={reel.image}
                       alt={reel.testimonial?.name || 'Testimonial'}
                       className="absolute inset-0 w-full h-full object-cover"
-                      style={{
+                              style={{
                         position: 'absolute',
                         top: 0,
                         left: 0,
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                      }}
+                          }}
                     />
                   )}
                 </div>
