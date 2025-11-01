@@ -1,120 +1,74 @@
+import leafIconLeft from '../assets/images/leaf_icon_left.png'
+import leafIconRight from '../assets/images/leaf_icon_right.png'
+import joinProvider1 from '../assets/images/join_provider1.png'
+import joinProvider2 from '../assets/images/join_provider2.png'
+import joinProvider3 from '../assets/images/join_provider3.png'
+import joinProvider4 from '../assets/images/join_provider4.png'
+import iphoneJoinProvider from '../assets/images/iphone_join_provider.png'
+
 const JoinProvider = () => {
-  const steps = [
-    {
-      title: 'Register',
-      description: 'Sign up and create your profile',
-      image: 'https://placehold.co/200x200/7c3aed/ffffff?text=Register',
-    },
-    {
-      title: 'Get Verified',
-      description: 'Complete verification process',
-      image: 'https://placehold.co/200x200/7c3aed/ffffff?text=Verify',
-    },
-    {
-      title: 'Start Earning',
-      description: 'Begin providing services and earn',
-      image: 'https://placehold.co/200x200/7c3aed/ffffff?text=Earn',
-    },
-  ]
-
-  const benefits = [
-    {
-      title: 'Flexible Hours',
-      description: 'Work on your own schedule',
-      image: 'https://placehold.co/150x150/7c3aed/ffffff?text=F',
-    },
-    {
-      title: 'High Earnings',
-      description: 'Earn competitive rates',
-      image: 'https://placehold.co/150x150/7c3aed/ffffff?text=H',
-    },
-    {
-      title: 'Secure Payments',
-      description: 'Get paid on time, every time',
-      image: 'https://placehold.co/150x150/7c3aed/ffffff?text=S',
-    },
-  ]
-
   return (
-    <>
-      {/* Join as Provider Section */}
-      <section className="py-20 bg-primary-800 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Join us as a Service Provider
+    <section className="relative py-16 md:py-20 lg:py-24 bg-[#3E2061] overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header with directional leaf icons */}
+        <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="flex items-center justify-center gap-4 md:gap-6 mb-6">
+            <img src={leafIconLeft} alt="Leaf icon left" className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+              Join us a Service Provider
             </h2>
-            <p className="text-xl text-primary-200">
-              Earn money by providing services
-            </p>
+            <img src={leafIconRight} alt="Leaf icon right" className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16" />
           </div>
+          <p className="text-base md:text-lg lg:text-xl text-white max-w-3xl mx-auto leading-relaxed">
+            Join Servicecart as a verified service provider and start growing your business. Get visibility, reach newer customers and earn more.
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/20"
-              >
+        {/* Main content - all images in a row */}
+        <div className="relative min-h-[700px] md:min-h-[800px] lg:min-h-[900px] flex items-center justify-center -mx-4">
+          <div className="relative w-full flex items-end justify-between px-0 gap-2 md:gap-4 lg:gap-6">
+            {/* Left edge - Provider 1 */}
+            <div className="flex items-end z-10">
+              <img
+                src={joinProvider1}
+                alt="Service Provider 1"
+                className="w-32 md:w-44 lg:w-56 h-auto object-contain"
+              />
+            </div>
+            
+            {/* Center group - Provider 2, iPhone, Provider 3 */}
+            <div className="flex items-end gap-2 md:gap-4 lg:gap-6 flex-1 justify-center">
+              <img
+                src={joinProvider2}
+                alt="Service Provider 2"
+                className="w-32 md:w-44 lg:w-56 h-auto object-contain"
+              />
+              <div className="relative z-30">
                 <img
-                  src={step.image}
-                  alt={step.title}
-                  className="w-32 h-32 mx-auto mb-6 rounded-lg"
+                  src={iphoneJoinProvider}
+                  alt="Servicecart App"
+                  className="w-56 md:w-72 lg:w-96 h-auto object-contain"
                 />
-                <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
-                <p className="text-primary-200">{step.description}</p>
               </div>
-            ))}
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/20 max-w-2xl mx-auto">
-            <h3 className="text-3xl font-bold text-white mb-4">
-              Earn up to ₹43,000/month
-            </h3>
-            <button className="bg-primary-600 hover:bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
-              Join Now
-            </button>
+              <img
+                src={joinProvider3}
+                alt="Service Provider 3"
+                className="w-32 md:w-44 lg:w-56 h-auto object-contain"
+              />
+            </div>
+            
+            {/* Right edge - Provider 4 */}
+            <div className="flex items-end z-10">
+              <img
+                src={joinProvider4}
+                alt="Service Provider 4"
+                className="w-32 md:w-44 lg:w-56 h-auto object-contain"
+              />
+            </div>
           </div>
         </div>
-      </section>
-
-      {/* Why Join Us Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Why Join Us?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We provide the best platform for service providers
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center"
-              >
-                <img
-                  src={benefit.image}
-                  alt={benefit.title}
-                  className="w-24 h-24 mx-auto mb-4"
-                />
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-600">{benefit.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }
 

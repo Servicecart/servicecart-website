@@ -7,6 +7,7 @@ import HowItWorks from './components/HowItWorks'
 import WhyChooseUs from './components/WhyChooseUs'
 import Academy from './components/Academy'
 import DownloadApp from './components/DownloadApp'
+import JoinProvider from './components/JoinProvider'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 
@@ -22,6 +23,7 @@ function App() {
       <WhyChooseUs />
       <Academy />
       <DownloadApp />
+      <JoinProvider />
       <FAQ />
       <Footer />
     </div>
