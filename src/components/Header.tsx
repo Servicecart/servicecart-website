@@ -27,25 +27,65 @@ const Header = () => {
         <nav className="bg-white rounded-full px-12 py-5 flex items-center justify-center gap-12 max-w-6xl mx-auto shadow-2xl">
           {/* Left Navigation */}
           <div className="flex items-center gap-8">
-            <a href="#what-we-do" className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap">
+            <a 
+              href="#what-we-do" 
+              onClick={(e) => {
+                e.preventDefault()
+                const element = document.getElementById('what-we-do')
+                element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }}
+              className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap"
+            >
               What we do
             </a>
-            <a href="#why-us" className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap">
+            <a 
+              href="#why-us" 
+              onClick={(e) => {
+                e.preventDefault()
+                const element = document.getElementById('why-us')
+                element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }}
+              className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap"
+            >
               Why Us
             </a>
           </div>
 
           {/* Center Brand Name */}
-          <div className="text-3xl font-bold text-[#8A56E8] whitespace-nowrap">
+          <a 
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault()
+              const element = document.getElementById('home')
+              element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }}
+            className="text-3xl font-bold text-[#8A56E8] whitespace-nowrap hover:opacity-80 transition-opacity cursor-pointer"
+          >
             Servicecart
-          </div>
+          </a>
 
           {/* Right Navigation */}
           <div className="flex items-center gap-8">
-            <a href="#faqs" className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap">
+            <a 
+              href="#faqs" 
+              onClick={(e) => {
+                e.preventDefault()
+                const element = document.getElementById('faqs')
+                element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }}
+              className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap"
+            >
               FAQs
             </a>
-            <a href="#download" className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap">
+            <a 
+              href="#download" 
+              onClick={(e) => {
+                e.preventDefault()
+                const element = document.getElementById('download')
+                element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }}
+              className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap"
+            >
               Download
             </a>
           </div>

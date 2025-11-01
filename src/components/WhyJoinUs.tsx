@@ -5,13 +5,43 @@ import joinProvider2 from '../assets/images/join_provider2.png'
 import joinProvider3 from '../assets/images/join_provider3.png'
 import joinProvider4 from '../assets/images/join_provider4.png'
 import iphoneJoinProvider from '../assets/images/iphone_join_provider.png'
+import { useState, useEffect, useRef } from 'react'
 import joinUs1 from '../assets/images/join_us_1.svg'
 import joinUs2 from '../assets/images/join_us_2.svg'
 import joinUs3 from '../assets/images/join_us_3.svg'
 
 const WhyJoinUs = () => {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
+
   return (
-    <section className="relative overflow-hidden">
+    <section 
+      ref={sectionRef}
+      className={`relative overflow-hidden transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       {/* Linear Gradient Background from #3E2061 to #161424 */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#3E2061] to-[#161424]"></div>
       

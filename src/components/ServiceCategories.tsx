@@ -1,10 +1,33 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import sliderContainer1 from '../assets/images/slider_container1.png'
 import sliderContainer2 from '../assets/images/slider_container2.png'
 import sliderContainer3 from '../assets/images/slider_container3.png'
 import sliderContainer from '../assets/images/slider_container.png'
 
 const ServiceCategories = () => {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
   const categories = [
     {
       id: 1,
@@ -81,12 +104,18 @@ const ServiceCategories = () => {
   }, [maxIndex])
 
   return (
-    <section className="py-12 md:py-16 bg-white">
+    <section 
+      id="what-we-do"
+      ref={sectionRef}
+      className={`py-12 md:py-16 bg-white transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       <div className="container mx-auto px-4">
         {/* Light Purple Rounded Banner */}
         <div className="flex justify-center mb-8 md:mb-12">
-          <div className="bg-[#F3E8FF] rounded-2xl px-8 md:px-12 py-3 md:py-4 shadow-md">
-            <p className="text-base md:text-lg font-semibold text-gray-800 whitespace-nowrap">
+          <div className="bg-[#EFE7F9] rounded-full px-6 md:px-8 py-2 md:py-2.5 shadow-md">
+            <p className="text-sm md:text-base font-normal text-[#6A2E9A] whitespace-nowrap">
               100+ categories to choose from
             </p>
           </div>

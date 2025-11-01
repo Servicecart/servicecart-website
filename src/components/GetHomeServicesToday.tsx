@@ -1,10 +1,41 @@
+import { useState, useEffect, useRef } from 'react'
 import groupIphone from '../assets/images/group_iphone.png'
 import appleIcon from '../assets/images/apple-icon.png'
 import googleIcon from '../assets/images/google-icon.png'
 
 const GetHomeServicesToday = () => {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
+
   return (
-    <section className="relative min-h-screen overflow-hidden pb-0">
+    <section 
+      id="download"
+      ref={sectionRef}
+      className={`relative min-h-screen overflow-hidden pb-0 transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       {/* Solid Background matching the image */}
       <div className="absolute inset-0 bg-[#281A3B]"></div>
       
@@ -43,7 +74,7 @@ const GetHomeServicesToday = () => {
       <img
         src={groupIphone}
         alt="Group of iPhones displaying the app"
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 w-full max-w-5xl h-auto object-contain"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 w-full max-w-3xl h-auto object-contain"
       />
     </section>
   )

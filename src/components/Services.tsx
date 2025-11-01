@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react'
 import ourService1 from '../assets/images/our_service.png'
 import ourService2 from '../assets/images/our_service2.png'
 import ourService3 from '../assets/images/our_service3.png'
@@ -5,6 +6,29 @@ import ourService4 from '../assets/images/our_service4.png'
 import ourService5 from '../assets/images/our_service5.png'
 
 const Services = () => {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
   const services = [
     {
       id: 1,
@@ -29,10 +53,16 @@ const Services = () => {
   ]
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section 
+      id="services" 
+      ref={sectionRef}
+      className={`py-20 bg-white transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <div className="inline-block bg-purple-100 text-purple-700 px-6 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-block bg-[#EFE7F9] text-[#6A2E9A] px-6 md:px-8 py-2 md:py-2.5 rounded-full text-sm md:text-base font-normal mb-6">
             Our Top Services
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">

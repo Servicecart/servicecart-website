@@ -75,8 +75,8 @@ const HowItWorks = () => {
             visibleElements.has('pill') ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
           }`}
         >
-          <div className="bg-[#F3E8FF] rounded-full px-6 md:px-8 py-2 md:py-3">
-            <p className="text-sm md:text-base font-semibold text-[#3E2061]">
+          <div className="bg-[#EFE7F9] rounded-full px-6 md:px-8 py-2 md:py-2.5">
+            <p className="text-sm md:text-base font-normal text-[#6A2E9A]">
               How it works
             </p>
           </div>

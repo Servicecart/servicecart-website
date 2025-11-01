@@ -75,10 +75,10 @@ const WhyChooseUs = () => {
   }, [])
 
   return (
-    <section className="py-20 bg-white">
+    <section id="why-us" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <div className="inline-block bg-purple-100 text-purple-700 px-6 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-block bg-[#EFE7F9] text-[#6A2E9A] px-6 md:px-8 py-2 md:py-2.5 rounded-full text-sm md:text-base font-normal mb-6">
             Why us
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">

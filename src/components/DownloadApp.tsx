@@ -1,9 +1,39 @@
+import { useState, useEffect, useRef } from 'react'
 import wolfPointingRight from '../assets/images/wolf_pointing_right.png'
 import iphoneQR from '../assets/images/iphone_QR.png'
 
 const DownloadApp = () => {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
+
   return (
-    <section className="relative overflow-visible bg-white">
+    <section 
+      ref={sectionRef}
+      className={`relative overflow-visible bg-white transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       <div className="relative min-h-[600px] md:min-h-[700px] lg:min-h-[800px]">
         {/* Purple Background - Bottom 50% of section */}
         <div className="absolute bottom-0 left-0 w-full h-1/2 bg-[#3E2061] z-0">
