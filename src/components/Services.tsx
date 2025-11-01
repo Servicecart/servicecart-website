@@ -1,34 +1,30 @@
+import ourService1 from '../assets/images/our_service.png'
+import ourService2 from '../assets/images/our_service2.png'
+import ourService3 from '../assets/images/our_service3.png'
+import ourService4 from '../assets/images/our_service4.png'
+import ourService5 from '../assets/images/our_service5.png'
+
 const Services = () => {
   const services = [
     {
-      title: 'Haircut & Styling',
-      description: 'Professional haircuts and styling services',
-      icon: 'https://placehold.co/80x80/7c3aed/ffffff?text=H',
+      id: 1,
+      image: ourService1,
     },
     {
-      title: 'Home Cleaning',
-      description: 'Deep cleaning and regular maintenance',
-      icon: 'https://placehold.co/80x80/7c3aed/ffffff?text=C',
+      id: 2,
+      image: ourService2,
     },
     {
-      title: 'Gas Delivery',
-      description: 'Quick and safe gas cylinder delivery',
-      icon: 'https://placehold.co/80x80/7c3aed/ffffff?text=G',
+      id: 3,
+      image: ourService3,
     },
     {
-      title: 'Plumbing',
-      description: 'Expert plumbing services 24/7',
-      icon: 'https://placehold.co/80x80/7c3aed/ffffff?text=P',
+      id: 4,
+      image: ourService4,
     },
     {
-      title: 'Car Repair',
-      description: 'Professional auto repair services',
-      icon: 'https://placehold.co/80x80/7c3aed/ffffff?text=R',
-    },
-    {
-      title: 'Laptop Repair',
-      description: 'Fast and reliable laptop repairs',
-      icon: 'https://placehold.co/80x80/7c3aed/ffffff?text=L',
+      id: 5,
+      image: ourService5,
     },
   ]
 
@@ -36,29 +32,28 @@ const Services = () => {
     <section id="services" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
+          <div className="inline-block bg-purple-100 text-purple-700 px-6 py-2 rounded-full text-sm font-medium mb-6">
+            Our Top Services
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our Services
+            We proudly present our top curated categories
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We offer a wide range of professional services to make your life easier
+            Choose from the best hand picked services across home, personal care, utility and custom services.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {services.map((service) => (
             <div
-              key={index}
-              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
+              key={service.id}
+              className="bg-gray-100 rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
             >
               <img
-                src={service.icon}
-                alt={service.title}
-                className="w-16 h-16 mb-4"
+                src={service.image}
+                alt={`Service ${service.id}`}
+                className="w-full h-auto object-contain"
               />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                {service.title}
-              </h3>
-              <p className="text-gray-600">{service.description}</p>
             </div>
           ))}
         </div>
@@ -68,5 +63,4 @@ const Services = () => {
 }
 
 export default Services
-
 

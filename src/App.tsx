@@ -1,13 +1,12 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
+import ServiceCategories from './components/ServiceCategories'
+import Mission from './components/Mission'
 import Services from './components/Services'
 import HowItWorks from './components/HowItWorks'
-import Features from './components/Features'
 import WhyChooseUs from './components/WhyChooseUs'
-import Testimonials from './components/Testimonials'
-import Team from './components/Team'
+import Academy from './components/Academy'
 import DownloadApp from './components/DownloadApp'
-import JoinProvider from './components/JoinProvider'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 
@@ -16,14 +15,12 @@ function App() {
     <div className="min-h-screen bg-white">
       <Header />
       <Hero />
-      <Services />
+      <ServiceCategories />
+      <Mission />
       <HowItWorks />
-      <Features />
+      <Services />
       <WhyChooseUs />
-      <DownloadApp />
-      <Team />
-      <JoinProvider />
-      <Testimonials />
+      <Academy />
       <DownloadApp />
       <FAQ />
       <Footer />

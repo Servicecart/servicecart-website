@@ -1,64 +1,119 @@
+import { useState, useEffect, useRef } from 'react'
+import whyChooseUs1 from '../assets/images/why-choose-us1.png'
+import whyChooseUs2 from '../assets/images/why-choose-us2.png'
+import whyChooseUs3 from '../assets/images/why-choose-us3.png'
+import whyChooseUs4 from '../assets/images/why-choose-us4.png'
+import whyChooseUs5 from '../assets/images/why-choose-us5.png'
+import whyChooseUs6 from '../assets/images/why-choose-us6.png'
+
 const WhyChooseUs = () => {
-  const benefits = [
+  const [visibleElements, setVisibleElements] = useState<Set<string>>(new Set())
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  const reasons = [
     {
-      title: 'Easy Booking',
-      description: 'Simple and quick booking process',
-      icon: 'https://placehold.co/80x80/7c3aed/ffffff?text=E',
+      id: 1,
+      image: whyChooseUs1,
+      text: 'Choose your provider',
     },
     {
-      title: 'Fast & Reliable',
-      description: 'Quick response and dependable service',
-      icon: 'https://placehold.co/80x80/7c3aed/ffffff?text=F',
+      id: 2,
+      image: whyChooseUs2,
+      text: 'Seasonal Trending Services',
     },
     {
-      title: 'Experienced Professionals',
-      description: 'Skilled and verified service providers',
-      icon: 'https://placehold.co/80x80/7c3aed/ffffff?text=P',
+      id: 3,
+      image: whyChooseUs3,
+      text: 'Hire people for your work',
     },
     {
-      title: 'Affordable Prices',
-      description: 'Competitive pricing for all services',
-      icon: 'https://placehold.co/80x80/7c3aed/ffffff?text=$',
+      id: 4,
+      image: whyChooseUs4,
+      text: 'Verified Providers',
     },
     {
-      title: 'Quality Service',
-      description: 'High-quality service guaranteed',
-      icon: 'https://placehold.co/80x80/7c3aed/ffffff?text=Q',
+      id: 5,
+      image: whyChooseUs5,
+      text: 'Apply for tenders and projects',
     },
     {
-      title: 'Customer Support',
-      description: '24/7 customer support available',
-      icon: 'https://placehold.co/80x80/7c3aed/ffffff?text=S',
+      id: 6,
+      image: whyChooseUs6,
+      text: 'Trusted by 1Lakh+ users',
     },
   ]
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const elementId = entry.target.getAttribute('data-animate-id')
+            if (elementId) {
+              setVisibleElements((prev) => new Set(prev).add(elementId))
+            }
+          }
+        })
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    )
+
+    cardRefs.current.forEach((card) => {
+      if (card) {
+        observer.observe(card)
+      }
+    })
+
+    return () => {
+      cardRefs.current.forEach((card) => {
+        if (card) observer.unobserve(card)
+      })
+    }
+  }, [])
 
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
+          <div className="inline-block bg-purple-100 text-purple-700 px-6 py-2 rounded-full text-sm font-medium mb-6">
+            Why us
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Why Choose Servicecart
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We provide the best services with exceptional customer care
+            We have got not one but 6 reasons and here's why:
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {benefits.map((benefit, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {reasons.map((reason, index) => (
             <div
-              key={index}
-              className="bg-primary-50 p-6 rounded-xl hover:shadow-lg transition-shadow"
+              key={reason.id}
+              ref={(el) => {
+                cardRefs.current[index] = el
+              }}
+              data-animate-id={`card-${index}`}
+              className={`bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-700 ${
+                visibleElements.has(`card-${index}`)
+                  ? 'opacity-100 translate-y-0 scale-100'
+                  : 'opacity-0 translate-y-8 scale-95'
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <img
-                src={benefit.icon}
-                alt={benefit.title}
-                className="w-16 h-16 mb-4"
-              />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                {benefit.title}
-              </h3>
-              <p className="text-gray-600">{benefit.description}</p>
+              <div className="rounded-t-xl overflow-hidden">
+                <img
+                  src={reason.image}
+                  alt={reason.text}
+                  className="w-full h-auto"
+                />
+              </div>
+              <div className="p-4 text-center">
+                <p className="text-base font-medium text-gray-900">{reason.text}</p>
+              </div>
             </div>
           ))}
         </div>
