@@ -4,7 +4,6 @@ import teamImage from '../assets/images/team.png'
 const Mission = () => {
   // Extract video ID from YouTube URL
   const videoId = 'AVCxkEwPFLw'
-  const [isHovered, setIsHovered] = useState(false)
   const iframeRef = useRef<HTMLIFrameElement>(null)
 
   // Autoplay muted URL with IFrame API enabled
@@ -16,7 +15,6 @@ const Mission = () => {
     if (!iframe) return
 
     const handleMouseEnter = () => {
-      setIsHovered(true)
       // Unmute on hover - using postMessage to YouTube API
       iframe.contentWindow?.postMessage(
         JSON.stringify({
@@ -28,7 +26,6 @@ const Mission = () => {
     }
 
     const handleMouseLeave = () => {
-      setIsHovered(false)
       // Mute when not hovering
       iframe.contentWindow?.postMessage(
         JSON.stringify({
