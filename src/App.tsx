@@ -5,9 +5,12 @@ import Mission from './components/Mission'
 import Services from './components/Services'
 import HowItWorks from './components/HowItWorks'
 import WhyChooseUs from './components/WhyChooseUs'
+import WhyJoinUs from './components/WhyJoinUs'
 import Academy from './components/Academy'
 import DownloadApp from './components/DownloadApp'
 import JoinProvider from './components/JoinProvider'
+import InstagramReels from './components/InstagramReels'
+import GetHomeServicesToday from './components/GetHomeServicesToday'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 
@@ -24,6 +27,9 @@ function App() {
       <Academy />
       <DownloadApp />
       <JoinProvider />
+      <WhyJoinUs />
+      <InstagramReels />
+      <GetHomeServicesToday />
       <FAQ />
       <Footer />
     </div>
