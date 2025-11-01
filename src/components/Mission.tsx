@@ -1,18 +1,67 @@
+import { useState, useRef, useEffect } from 'react'
 import teamImage from '../assets/images/team.png'
 
 const Mission = () => {
   // Extract video ID from YouTube URL
   const videoId = 'AVCxkEwPFLw'
-  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=0&controls=1`
+  const [isHovered, setIsHovered] = useState(false)
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+
+  // Autoplay muted URL with IFrame API enabled
+  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=1&modestbranding=1&rel=0&enablejsapi=1&origin=${window.location.origin}`
+
+  // Handle hover to unmute/pause
+  useEffect(() => {
+    const iframe = iframeRef.current
+    if (!iframe) return
+
+    const handleMouseEnter = () => {
+      setIsHovered(true)
+      // Unmute on hover - using postMessage to YouTube API
+      iframe.contentWindow?.postMessage(
+        JSON.stringify({
+          event: 'command',
+          func: 'unMute',
+        }),
+        '*'
+      )
+    }
+
+    const handleMouseLeave = () => {
+      setIsHovered(false)
+      // Mute when not hovering
+      iframe.contentWindow?.postMessage(
+        JSON.stringify({
+          event: 'command',
+          func: 'mute',
+        }),
+        '*'
+      )
+    }
+
+    const container = iframe.closest('div')
+    if (container) {
+      container.addEventListener('mouseenter', handleMouseEnter)
+      container.addEventListener('mouseleave', handleMouseLeave)
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener('mouseenter', handleMouseEnter)
+        container.removeEventListener('mouseleave', handleMouseLeave)
+      }
+    }
+  }, [])
 
   return (
     <section className="py-12 md:py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 md:gap-12 items-stretch">
-          {/* Left Section - YouTube Video Player */}
-          <div className="relative w-full">
-            <div className="relative rounded-xl overflow-hidden bg-gray-100 aspect-video shadow-lg">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.65fr_1fr] gap-8 md:gap-12 items-stretch">
+          {/* Left Section - YouTube Video Player (60-65% width) */}
+          <div className="relative w-full h-full flex">
+            <div className="relative rounded-xl overflow-hidden bg-gray-100 shadow-lg group w-full h-full">
               <iframe
+                ref={iframeRef}
                 src={embedUrl}
                 title="YouTube video player"
                 frameBorder="0"
@@ -23,26 +72,25 @@ const Mission = () => {
             </div>
           </div>
 
-          {/* Right Section - Mission Card */}
-          <div className="w-full">
-            <div className="bg-gray-100 rounded-2xl p-6 md:p-8 lg:p-10 flex flex-col h-full">
-              {/* Mission Title */}
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Our Mission
-              </h2>
+          {/* Right Section - Single Card with Mission Text and Team Photo (35-40% width) */}
+          <div className="w-full flex flex-col h-full">
+            <div className="bg-gray-50 rounded-2xl overflow-hidden flex flex-col h-full shadow-lg">
+              {/* Mission Statement - Top Section with padding */}
+              <div className="p-6 md:p-8 flex-shrink-0">
+                <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 md:mb-6 text-left">
+                  Our Mission
+                </h2>
+                <p className="text-base md:text-lg text-gray-700 leading-relaxed text-left">
+                  To make finding trusted home and beauty services, easy transparent, and efficient while helping local professionals grow through a digital platform.
+                </p>
+              </div>
 
-              {/* Mission Text */}
-              <p className="text-base md:text-lg text-gray-700 mb-8 leading-relaxed">
-                To make finding trusted home and beauty services, easy transparent, and efficient while helping local professionals grow through a digital platform.
-              </p>
-
-              {/* Team Photo - Bottom Center Aligned */}
-              <div className="mt-auto flex justify-center">
+              {/* Team Photo - Fills entire bottom section with no gaps */}
+              <div className="flex-grow flex items-end justify-center overflow-hidden w-full">
                 <img
                   src={teamImage}
                   alt="Servicecart Team"
-                  className="max-w-full h-auto rounded-xl object-contain"
-                  style={{ maxHeight: '300px' }}
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>

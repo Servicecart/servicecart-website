@@ -13,16 +13,22 @@ const Academy = () => {
     {
       id: 1,
       title: 'Register for Certification Course',
+      titleLine1: 'Register for Certification',
+      titleLine2: 'Course',
       image: academy1,
     },
     {
       id: 2,
       title: 'Learn from the best and Implement',
+      titleLine1: 'Learn from the best',
+      titleLine2: 'and Implement',
       image: academy2,
     },
     {
       id: 3,
       title: 'Get professionally verified with certificate',
+      titleLine1: 'Get professionally verified',
+      titleLine2: 'with certificate',
       image: academy3,
     },
   ]
@@ -109,22 +115,33 @@ const Academy = () => {
                 cardRefs.current[index] = el
               }}
               data-animate-id={`card-${index}`}
-              className={`bg-gray-50 rounded-2xl transition-all duration-700 flex flex-col min-h-[400px] md:min-h-[450px] lg:min-h-[500px] ${
+              className={`bg-gray-50 rounded-[32px] transition-all duration-700 flex flex-col h-auto shadow-lg ${
                 visibleElements.has(`card-${index}`)
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              {/* Title */}
-              <div className="px-6 md:px-8 pt-6 md:pt-8 pb-4 md:pb-5 flex-shrink-0">
-                <h3 className="text-base md:text-lg lg:text-xl font-bold text-black text-center">
-                  {card.title}
+              {/* Title - Centered at top with substantial padding */}
+              <div className="px-6 md:px-8 pt-6 md:pt-8 pb-6 md:pb-8 flex-shrink-0">
+                <h3 className="text-base md:text-lg lg:text-xl font-bold text-black text-center leading-tight">
+                  {card.titleLine1 && card.titleLine2 ? (
+                    <>
+                      <span>{card.titleLine1}</span>
+                      <br />
+                      <span className="text-sm md:text-base lg:text-lg">{card.titleLine2}</span>
+                    </>
+                  ) : (
+                    card.title
+                  )}
                 </h3>
               </div>
               
-              {/* Image filling majority of card space - full width to edges */}
-              <div className="flex-1 pb-6 md:pb-8 flex items-center justify-center min-h-0 overflow-hidden rounded-b-2xl">
+              {/* Large empty space - equal to text + figures height */}
+              <div className="flex-grow"></div>
+              
+              {/* Image locked to bottom edge with no space */}
+              <div className="flex items-end justify-center pb-0 overflow-hidden">
                 <img
                   src={card.image}
                   alt={card.title}
