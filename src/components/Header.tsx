@@ -1,16 +1,40 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { trackNavigation } from '../utils/analytics'
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault()
-    const element = document.getElementById(targetId)
-    element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    
+    // If not on home page, navigate to home first
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        const element = document.getElementById(targetId)
+        element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 100)
+    } else {
+      const element = document.getElementById(targetId)
+      element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    
     trackNavigation(targetId)
     setIsMobileMenuOpen(false) // Close mobile menu on click
+  }
+  
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (location.pathname === '/') {
+      e.preventDefault()
+      const element = document.getElementById('home')
+      element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      trackNavigation('home')
+    }
+    // Otherwise let Link handle navigation
   }
 
   const navigationLinks = [
@@ -48,14 +72,14 @@ const Header = () => {
             </div>
 
             {/* Center Brand Name */}
-            <a 
-              href="#home"
-              onClick={(e) => handleNavClick(e, 'home')}
+            <Link 
+              to="/"
+              onClick={handleHomeClick}
               className="text-3xl font-bold text-[#8A56E8] whitespace-nowrap hover:opacity-80 transition-opacity cursor-pointer"
               style={{ fontFamily: '"Servicecart Bold", sans-serif' }}
             >
               Servicecart
-            </a>
+            </Link>
 
             {/* Right Navigation */}
             <div className="flex items-center gap-8">
@@ -84,14 +108,14 @@ const Header = () => {
       <div className="md:hidden py-4 px-4">
         <div className="bg-white rounded-full px-4 py-3 flex items-center justify-between shadow-2xl">
           {/* Brand Name */}
-          <a 
-            href="#home"
-            onClick={(e) => handleNavClick(e, 'home')}
+          <Link 
+            to="/"
+            onClick={handleHomeClick}
             className="text-2xl font-bold text-[#8A56E8] hover:opacity-80 transition-opacity"
             style={{ fontFamily: '"Servicecart Bold", sans-serif' }}
           >
             Servicecart
-          </a>
+          </Link>
 
           {/* Hamburger Menu Button */}
           <button

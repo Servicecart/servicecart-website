@@ -1,4 +1,5 @@
 import { Phone, Mail, MessageCircle, Instagram, Twitter, Linkedin } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { trackContact, trackSocial, trackNavigation } from '../utils/analytics'
 
 const Footer = () => {
@@ -10,34 +11,43 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 md:gap-8">
             {/* Left Side - Navigation Links */}
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6 md:gap-8">
-              <a 
-                href="#home" 
+              <Link 
+                to="/" 
                 onClick={() => trackNavigation('footer_home')}
                 className="text-white font-bold text-base sm:text-lg md:text-xl hover:opacity-80 transition-opacity whitespace-nowrap"
               >
                 Servicecart
-              </a>
+              </Link>
               <a 
-                href="#why-join-us" 
-                onClick={() => trackNavigation('join_provider')}
+                href="/#why-join-us" 
+                onClick={(e) => {
+                  e.preventDefault()
+                  if (window.location.pathname !== '/') {
+                    window.location.href = '/#why-join-us'
+                  } else {
+                    const element = document.getElementById('why-join-us')
+                    element?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                  trackNavigation('join_provider')
+                }}
                 className="text-white text-sm sm:text-base font-normal hover:opacity-80 transition-opacity whitespace-nowrap"
               >
                 Join us as a Provider
               </a>
-              <a 
-                href="#" 
+              <Link 
+                to="/legal/terms-and-conditions" 
                 onClick={() => trackNavigation('terms')}
                 className="text-white text-sm sm:text-base font-normal hover:opacity-80 transition-opacity whitespace-nowrap"
               >
                 Terms of Use
-              </a>
-              <a 
-                href="#" 
+              </Link>
+              <Link 
+                to="/legal/privacy-policy" 
                 onClick={() => trackNavigation('privacy')}
                 className="text-white text-sm sm:text-base font-normal hover:opacity-80 transition-opacity whitespace-nowrap"
               >
                 Privacy Policy
-              </a>
+              </Link>
             </div>
 
             {/* Right Side - Social Media Icons */}
@@ -127,27 +137,27 @@ const Footer = () => {
 
             {/* Right Side - Policy Links */}
             <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 sm:gap-4 md:gap-6 text-white text-xs sm:text-sm md:text-base order-1 md:order-2">
-              <a 
-                href="#" 
+              <Link 
+                to="/legal/equal-opportunity-policy" 
                 onClick={() => trackNavigation('equal_opportunity')}
                 className="hover:opacity-80 transition-opacity whitespace-nowrap"
               >
                 Equal Opportunity Policy
-              </a>
-              <a 
-                href="#" 
+              </Link>
+              <Link 
+                to="/legal/refund-and-cancellation" 
                 onClick={() => trackNavigation('refund_policy')}
                 className="hover:opacity-80 transition-opacity whitespace-nowrap"
               >
                 Refund & Cancellation Policy
-              </a>
-              <a 
-                href="#" 
+              </Link>
+              <Link 
+                to="/policy/vulnerability-disclosure" 
                 onClick={() => trackNavigation('vulnerability_policy')}
                 className="hover:opacity-80 transition-opacity whitespace-nowrap"
               >
                 Vulnerability Disclosure Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>
