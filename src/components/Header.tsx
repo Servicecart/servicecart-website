@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import { trackNavigation } from '../utils/analytics'
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -8,6 +9,7 @@ const Header = () => {
     e.preventDefault()
     const element = document.getElementById(targetId)
     element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    trackNavigation(targetId)
     setIsMobileMenuOpen(false) // Close mobile menu on click
   }
 

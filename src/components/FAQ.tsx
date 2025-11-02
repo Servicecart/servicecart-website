@@ -1,5 +1,6 @@
 import { ChevronDown } from 'lucide-react'
 import { useState, useEffect, useRef } from 'react'
+import { trackFAQ, trackSectionView } from '../utils/analytics'
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -11,6 +12,7 @@ const FAQ = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
+          trackSectionView('faq')
         }
       },
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
@@ -63,7 +65,9 @@ const FAQ = () => {
   ]
 
   const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index)
+    const wasOpen = openIndex === index
+    setOpenIndex(wasOpen ? null : index)
+    trackFAQ(wasOpen ? 'close' : 'open', faqs[index].question)
   }
 
   return (

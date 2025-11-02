@@ -1,9 +1,14 @@
+import { useEffect } from 'react'
 import appleIcon from '../assets/images/apple-icon.png'
 import googleIcon from '../assets/images/google-icon.png'
 import womanProfessional from '../assets/images/women-professional.png'
 import manProfessional from '../assets/images/man-professional.png'
+import { trackPageView, trackDownload } from '../utils/analytics'
 
 const Hero = () => {
+  useEffect(() => {
+    trackPageView('hero')
+  }, [])
 
 
 
@@ -70,7 +75,10 @@ const Hero = () => {
 
         {/* Download Buttons with Enhanced Design */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 px-4 sm:px-6 md:px-8 lg:px-0 animate-fade-in-delayed">
-          <button className="group relative flex items-center gap-2 sm:gap-3 bg-white/95 backdrop-blur-sm text-black px-5 sm:px-6 md:px-7 lg:px-8 py-3 sm:py-3.5 rounded-full hover:bg-white transition-all shadow-xl hover:scale-105 hover:shadow-2xl overflow-hidden w-full sm:w-auto max-w-xs sm:max-w-none">
+          <button 
+            onClick={() => trackDownload('app_store')}
+            className="group relative flex items-center gap-2 sm:gap-3 bg-white/95 backdrop-blur-sm text-black px-5 sm:px-6 md:px-7 lg:px-8 py-3 sm:py-3.5 rounded-full hover:bg-white transition-all shadow-xl hover:scale-105 hover:shadow-2xl overflow-hidden w-full sm:w-auto max-w-xs sm:max-w-none"
+          >
             <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 via-pink-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <img src={appleIcon} alt="Apple" className="w-7 h-7 sm:w-8 sm:h-8 object-contain relative z-10 group-hover:scale-110 transition-transform duration-300 flex-shrink-0" />
             <div className="flex flex-col items-start relative z-10">
@@ -80,7 +88,10 @@ const Hero = () => {
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
           </button>
 
-          <button className="group relative flex items-center gap-2 sm:gap-3 bg-white/95 backdrop-blur-sm text-black px-5 sm:px-6 md:px-7 lg:px-8 py-3 sm:py-3.5 rounded-full hover:bg-white transition-all shadow-xl hover:scale-105 hover:shadow-2xl overflow-hidden w-full sm:w-auto max-w-xs sm:max-w-none">
+          <button 
+            onClick={() => trackDownload('google_play')}
+            className="group relative flex items-center gap-2 sm:gap-3 bg-white/95 backdrop-blur-sm text-black px-5 sm:px-6 md:px-7 lg:px-8 py-3 sm:py-3.5 rounded-full hover:bg-white transition-all shadow-xl hover:scale-105 hover:shadow-2xl overflow-hidden w-full sm:w-auto max-w-xs sm:max-w-none"
+          >
             <div className="absolute inset-0 bg-gradient-to-r from-green-400/10 via-blue-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <img src={googleIcon} alt="Google Play" className="w-7 h-7 sm:w-8 sm:h-8 object-contain relative z-10 group-hover:scale-110 transition-transform duration-300 flex-shrink-0" />
             <div className="flex flex-col items-start relative z-10">
