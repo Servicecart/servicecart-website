@@ -1,28 +1,36 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import { Analytics } from '@vercel/analytics/react'
+import { lazy, Suspense } from 'react'
 import CustomCursor from './components/CustomCursor'
 import Home from './pages/Home'
-import TermsAndConditions from './pages/TermsAndConditions'
-import PrivacyPolicy from './pages/PrivacyPolicy'
-import EqualOpportunityPolicy from './pages/EqualOpportunityPolicy'
-import RefundAndCancellation from './pages/RefundAndCancellation'
-import VulnerabilityDisclosure from './pages/VulnerabilityDisclosure'
+
+// Lazy load pages for better performance
+const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'))
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
+const EqualOpportunityPolicy = lazy(() => import('./pages/EqualOpportunityPolicy'))
+const RefundAndCancellation = lazy(() => import('./pages/RefundAndCancellation'))
+const VulnerabilityDisclosure = lazy(() => import('./pages/VulnerabilityDisclosure'))
 
 function App() {
   return (
-    <BrowserRouter>
-      {/* Custom Cursor - Applied to all pages */}
-      <CustomCursor />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/legal/terms-and-conditions" element={<TermsAndConditions />} />
-        <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/legal/equal-opportunity-policy" element={<EqualOpportunityPolicy />} />
-        <Route path="/legal/refund-and-cancellation" element={<RefundAndCancellation />} />
-        <Route path="/policy/vulnerability-disclosure" element={<VulnerabilityDisclosure />} />
-      </Routes>
-      <Analytics />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        {/* Custom Cursor - Applied to all pages */}
+        <CustomCursor />
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-white"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div></div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/legal/terms-and-conditions" element={<TermsAndConditions />} />
+            <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/legal/equal-opportunity-policy" element={<EqualOpportunityPolicy />} />
+            <Route path="/legal/refund-and-cancellation" element={<RefundAndCancellation />} />
+            <Route path="/policy/vulnerability-disclosure" element={<VulnerabilityDisclosure />} />
+          </Routes>
+        </Suspense>
+        <Analytics />
+      </BrowserRouter>
+    </HelmetProvider>
   )
 }
 
