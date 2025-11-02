@@ -37,6 +37,7 @@ const WhyJoinUs = () => {
 
   return (
     <section 
+      id="why-join-us"
       ref={sectionRef}
       className={`relative overflow-hidden transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
