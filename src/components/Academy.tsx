@@ -78,8 +78,8 @@ const Academy = () => {
           <div 
             ref={headerPillRef}
             data-animate-id="pill"
-            className={`inline-block mb-8 md:mb-10 transition-all duration-700 ${
-              visibleElements.has('pill') ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+            className={`inline-block mb-8 md:mb-10 scroll-bounce-in ${
+              visibleElements.has('pill') ? 'visible' : ''
             }`}
           >
             <div className="bg-[#EFE7F9] rounded-full px-8 md:px-12 py-2 md:py-2.5">
@@ -93,8 +93,8 @@ const Academy = () => {
           <div 
             ref={headerTitleRef}
             data-animate-id="title"
-            className={`transition-all duration-700 delay-100 ${
-              visibleElements.has('title') ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+            className={`scroll-reveal scroll-reveal-from-bottom animation-delay-200 ${
+              visibleElements.has('title') ? 'visible' : ''
             }`}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-6 md:mb-8">
@@ -115,10 +115,10 @@ const Academy = () => {
                 cardRefs.current[index] = el
               }}
               data-animate-id={`card-${index}`}
-              className={`bg-gray-50 rounded-[32px] transition-all duration-700 flex flex-col h-auto shadow-lg ${
+              className={`bg-gray-50 rounded-[32px] transition-all duration-700 flex flex-col h-auto shadow-lg scroll-fade-scale hover-lift hover-glow ${
                 visibleElements.has(`card-${index}`)
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
+                  ? 'visible'
+                  : ''
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
@@ -141,11 +141,11 @@ const Academy = () => {
               <div className="flex-grow"></div>
               
               {/* Image locked to bottom edge with no space */}
-              <div className="flex items-end justify-center pb-0 overflow-hidden">
+              <div className="flex items-end justify-center pb-0 overflow-hidden hover-shine">
                 <img
                   src={card.image}
                   alt={card.title}
-                  className="w-full h-auto object-contain"
+                  className="w-full h-auto object-contain hover-scale transition-transform duration-300"
                 />
               </div>
             </div>

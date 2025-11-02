@@ -14,7 +14,7 @@ const Footer = () => {
               <Link 
                 to="/" 
                 onClick={() => trackNavigation('footer_home')}
-                className="text-white font-bold text-base sm:text-lg md:text-xl hover:opacity-80 transition-opacity whitespace-nowrap"
+                className="text-white font-bold text-base sm:text-lg md:text-xl hover:opacity-80 hover-scale transition-all whitespace-nowrap"
               >
                 Servicecart
               </Link>
@@ -30,21 +30,21 @@ const Footer = () => {
                   }
                   trackNavigation('join_provider')
                 }}
-                className="text-white text-sm sm:text-base font-normal hover:opacity-80 transition-opacity whitespace-nowrap"
+                className="text-white text-sm sm:text-base font-normal hover:opacity-80 hover-scale transition-all whitespace-nowrap"
               >
                 Join us as a Provider
               </a>
               <Link 
                 to="/legal/terms-and-conditions" 
                 onClick={() => trackNavigation('terms')}
-                className="text-white text-sm sm:text-base font-normal hover:opacity-80 transition-opacity whitespace-nowrap"
+                className="text-white text-sm sm:text-base font-normal hover:opacity-80 hover-scale transition-all whitespace-nowrap"
               >
                 Terms of Use
               </Link>
               <Link 
                 to="/legal/privacy-policy" 
                 onClick={() => trackNavigation('privacy')}
-                className="text-white text-sm sm:text-base font-normal hover:opacity-80 transition-opacity whitespace-nowrap"
+                className="text-white text-sm sm:text-base font-normal hover:opacity-80 hover-scale transition-all whitespace-nowrap"
               >
                 Privacy Policy
               </Link>
@@ -56,7 +56,7 @@ const Footer = () => {
                 href="#"
                 onClick={() => trackSocial('instagram')}
                 aria-label="Instagram"
-                className="w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center hover:opacity-90 transition-opacity"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center hover-lift hover-bounce transition-all"
               >
                 <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
               </a>
@@ -64,7 +64,7 @@ const Footer = () => {
                 href="#"
                 onClick={() => trackSocial('twitter')}
                 aria-label="Twitter"
-                className="w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center hover:opacity-90 transition-opacity"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center hover-lift hover-bounce transition-all"
               >
                 <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
               </a>
@@ -72,7 +72,7 @@ const Footer = () => {
                 href="#"
                 onClick={() => trackSocial('linkedin')}
                 aria-label="LinkedIn"
-                className="w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center hover:opacity-90 transition-opacity"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center hover-lift hover-bounce transition-all"
               >
                 <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
               </a>
@@ -95,7 +95,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackContact('whatsapp', '+91 9559193131')}
-                className="flex items-center gap-2 sm:gap-3 bg-white px-6 sm:px-8 py-3 sm:py-4 rounded-[2rem] sm:rounded-[3rem] hover:opacity-90 transition-opacity shadow-md w-full sm:w-auto sm:min-w-[250px] md:min-w-[280px] justify-center"
+                className="flex items-center gap-2 sm:gap-3 bg-white px-6 sm:px-8 py-3 sm:py-4 rounded-[2rem] sm:rounded-[3rem] hover-lift hover-glow transition-all shadow-md w-full sm:w-auto sm:min-w-[250px] md:min-w-[280px] justify-center"
               >
                 <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-[#281A3B] flex-shrink-0" />
                 <span className="text-sm sm:text-base md:text-lg font-semibold text-[#281A3B] whitespace-nowrap">+91 9559193131</span>
@@ -105,7 +105,7 @@ const Footer = () => {
               <a
                 href="tel:+919923931111"
                 onClick={() => trackContact('phone', '+91 9923931111')}
-                className="flex items-center gap-2 sm:gap-3 bg-white px-6 sm:px-8 py-3 sm:py-4 rounded-[2rem] sm:rounded-[3rem] hover:opacity-90 transition-opacity shadow-md w-full sm:w-auto sm:min-w-[250px] md:min-w-[280px] justify-center"
+                className="flex items-center gap-2 sm:gap-3 bg-white px-6 sm:px-8 py-3 sm:py-4 rounded-[2rem] sm:rounded-[3rem] hover-lift hover-glow transition-all shadow-md w-full sm:w-auto sm:min-w-[250px] md:min-w-[280px] justify-center"
               >
                 <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-[#281A3B] flex-shrink-0" />
                 <span className="text-sm sm:text-base md:text-lg font-semibold text-[#281A3B] whitespace-nowrap">+91 9923931111</span>
@@ -115,7 +115,7 @@ const Footer = () => {
               <a
                 href="mailto:support@myservicecart.com"
                 onClick={() => trackContact('email', 'support@myservicecart.com')}
-                className="flex items-center gap-2 sm:gap-3 bg-white px-6 sm:px-8 py-3 sm:py-4 rounded-[2rem] sm:rounded-[3rem] hover:opacity-90 transition-opacity shadow-md w-full sm:w-auto sm:min-w-[250px] md:min-w-[280px] justify-center"
+                className="flex items-center gap-2 sm:gap-3 bg-white px-6 sm:px-8 py-3 sm:py-4 rounded-[2rem] sm:rounded-[3rem] hover-lift hover-glow transition-all shadow-md w-full sm:w-auto sm:min-w-[250px] md:min-w-[280px] justify-center"
               >
                 <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-[#281A3B] flex-shrink-0" />
                 <span className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-[#281A3B] break-all sm:break-normal sm:whitespace-nowrap">support@myservicecart.com</span>

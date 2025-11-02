@@ -61,8 +61,8 @@ const Services = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <div className="inline-block bg-[#EFE7F9] text-[#6A2E9A] px-6 md:px-8 py-2 md:py-2.5 rounded-full text-sm md:text-base font-normal mb-6">
+        <div className={`text-center mb-12 scroll-reveal scroll-reveal-from-bottom ${isVisible ? 'visible' : ''}`}>
+          <div className="inline-block bg-[#EFE7F9] text-[#6A2E9A] px-6 md:px-8 py-2 md:py-2.5 rounded-full text-sm md:text-base font-normal mb-6 scroll-bounce-in" style={{ transitionDelay: '100ms' }}>
             Our Top Services
           </div>
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -74,15 +74,18 @@ const Services = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <div
               key={service.id}
-              className="bg-gray-100 rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
+              className={`bg-gray-100 rounded-xl overflow-hidden scroll-fade-scale hover-lift ${
+                isVisible ? 'visible' : ''
+              }`}
+              style={{ transitionDelay: `${(index + 1) * 100}ms` }}
             >
               <img
                 src={service.image}
                 alt={`Service ${service.id}`}
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain hover-scale transition-transform duration-300"
               />
             </div>
           ))}

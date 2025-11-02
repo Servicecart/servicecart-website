@@ -75,7 +75,10 @@ const Hero = () => {
 
         {/* Download Buttons with Enhanced Design */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 px-4 sm:px-6 md:px-8 lg:px-0 animate-fade-in-delayed">
-          <button 
+          <a 
+            href="https://apps.apple.com/in/app/servicecart/id6477325801"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => trackDownload('app_store')}
             className="group relative flex items-center gap-2 sm:gap-3 bg-white/95 backdrop-blur-sm text-black px-5 sm:px-6 md:px-7 lg:px-8 py-3 sm:py-3.5 rounded-full hover:bg-white transition-all shadow-xl hover:scale-105 hover:shadow-2xl overflow-hidden w-full sm:w-auto max-w-xs sm:max-w-none"
           >
@@ -86,9 +89,12 @@ const Hero = () => {
               <span className="text-xs sm:text-sm md:text-base font-semibold leading-tight text-black">App Store</span>
             </div>
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-          </button>
+          </a>
 
-          <button 
+          <a 
+            href="https://play.google.com/store/apps/details?id=com.servicecaart.userapp&pcampaignid=web_share"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => trackDownload('google_play')}
             className="group relative flex items-center gap-2 sm:gap-3 bg-white/95 backdrop-blur-sm text-black px-5 sm:px-6 md:px-7 lg:px-8 py-3 sm:py-3.5 rounded-full hover:bg-white transition-all shadow-xl hover:scale-105 hover:shadow-2xl overflow-hidden w-full sm:w-auto max-w-xs sm:max-w-none"
           >
@@ -99,7 +105,7 @@ const Hero = () => {
               <span className="text-xs sm:text-sm md:text-base font-semibold leading-tight text-black">Google Play</span>
             </div>
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-          </button>
+          </a>
         </div>
       </div>
     </section>

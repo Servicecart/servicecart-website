@@ -97,18 +97,18 @@ const WhyChooseUs = () => {
                 cardRefs.current[index] = el
               }}
               data-animate-id={`card-${index}`}
-              className={`bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-700 ${
+              className={`bg-white rounded-xl overflow-hidden shadow-md hover-lift hover-glow transition-all duration-700 ${
                 visibleElements.has(`card-${index}`)
                   ? 'opacity-100 translate-y-0 scale-100'
                   : 'opacity-0 translate-y-8 scale-95'
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="rounded-t-xl overflow-hidden">
+              <div className="rounded-t-xl overflow-hidden hover-shine">
                 <img
                   src={reason.image}
                   alt={reason.text}
-                  className="w-full h-auto"
+                  className="w-full h-auto hover-scale transition-transform duration-300"
                 />
               </div>
               <div className="p-4 text-center">

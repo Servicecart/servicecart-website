@@ -79,7 +79,7 @@ const FAQ = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className={`text-center mb-12 scroll-reveal scroll-reveal-from-bottom ${isVisible ? 'visible' : ''}`}>
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900">
             All your questions answered
           </h2>
@@ -90,11 +90,14 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden"
+              className={`bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden scroll-fade-scale hover-lift ${
+                isVisible ? 'visible' : ''
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-all hover-scale"
               >
                 <span className="text-base md:text-lg font-semibold text-gray-900 pr-4 flex-1">
                   {faq.question}
