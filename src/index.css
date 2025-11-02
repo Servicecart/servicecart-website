@@ -5,10 +5,17 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
   }
   
   body {
     @apply text-gray-900;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Ensure all text elements use Inter by default */
+  p, span, a, li, td, th, label, input, textarea, select, button {
+    font-family: 'Inter', sans-serif;
   }
 }
 

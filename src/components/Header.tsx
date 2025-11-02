@@ -33,7 +33,7 @@ const Header = () => {
                 href="#services" 
                 onClick={(e) => handleNavClick(e, 'services')}
                 className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap"
-                style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+                style={{ fontFamily: '"Inter", sans-serif' }}
               >
                 Services
               </a>
@@ -41,7 +41,7 @@ const Header = () => {
                 href="#how-it-works" 
                 onClick={(e) => handleNavClick(e, 'how-it-works')}
                 className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap"
-                style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+                style={{ fontFamily: '"Inter", sans-serif' }}
               >
                 How It Works
               </a>
@@ -63,7 +63,7 @@ const Header = () => {
                 href="#why-us" 
                 onClick={(e) => handleNavClick(e, 'why-us')}
                 className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap"
-                style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+                style={{ fontFamily: '"Inter", sans-serif' }}
               >
                 Why Choose Us
               </a>
@@ -71,7 +71,7 @@ const Header = () => {
                 href="#download" 
                 onClick={(e) => handleNavClick(e, 'download')}
                 className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap"
-                style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+                style={{ fontFamily: '"Inter", sans-serif' }}
               >
                 Download
               </a>
@@ -117,7 +117,7 @@ const Header = () => {
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.id)}
                   className="block px-6 py-3 text-black font-normal text-base hover:bg-gray-100 transition-colors"
-                  style={{ fontFamily: '"Plus Jakarta Sans", sans-serif' }}
+                  style={{ fontFamily: '"Inter", sans-serif' }}
                 >
                   {link.label}
                 </a>
