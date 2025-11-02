@@ -62,20 +62,20 @@ const WhyJoinUs = () => {
               Join Servicecart as a verified service provider and start growing your business. Get visibility, reach newer customers and earn more.
             </p>
           </div>
-        </div>
+          </div>
 
         {/* Main content - all images in a row - Full width to allow edge positioning */}
         <div className="relative min-h-[700px] md:min-h-[800px] lg:min-h-[900px] flex items-center justify-center w-full pb-16 md:pb-20 lg:pb-24">
           {/* Left edge - Provider 1 - Absolutely positioned at left edge of screen, aligned with center images */}
           <div className={`absolute left-0 bottom-16 md:bottom-20 lg:bottom-24 z-10 flex items-end mr-4 md:mr-6 lg:mr-8 scroll-slide-left hover-lift hover-bounce transition-all ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '200ms' }}>
-            <img
-              src={joinProvider1}
-              alt="Service Provider 1"
+              <img
+                src={joinProvider1}
+                alt="Service Provider 1"
               className="w-32 md:w-44 lg:w-56 h-auto object-contain hover-scale transition-transform duration-300"
-            />
-          </div>
-          
-          {/* Center group - Provider 2, iPhone, Provider 3 */}
+              />
+            </div>
+            
+            {/* Center group - Provider 2, iPhone, Provider 3 */}
           <div className="relative z-20 flex items-end gap-2 md:gap-4 lg:gap-6 justify-center px-4 md:px-6 lg:px-8">
             <div className={`scroll-fade-in hover-lift hover-bounce transition-all ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '300ms' }}>
               <img
@@ -85,12 +85,12 @@ const WhyJoinUs = () => {
               />
             </div>
             <div className={`relative z-30 scroll-fade-scale hover-lift transition-all ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '400ms' }}>
-              <img
-                src={iphoneJoinProvider}
-                alt="Servicecart App"
+                <img
+                  src={iphoneJoinProvider}
+                  alt="Servicecart App"
                 className="w-56 md:w-72 lg:w-96 h-auto object-contain hover-scale transition-transform duration-300"
-              />
-            </div>
+                />
+              </div>
             <div className={`scroll-fade-in hover-lift hover-bounce transition-all ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '500ms' }}>
               <img
                 src={joinProvider3}
@@ -98,15 +98,15 @@ const WhyJoinUs = () => {
                 className="w-32 md:w-44 lg:w-56 h-auto object-contain hover-scale transition-transform duration-300"
               />
             </div>
-          </div>
-          
+            </div>
+            
           {/* Right edge - Provider 4 - Absolutely positioned at right edge of screen, aligned with center images */}
           <div className={`absolute right-0 bottom-16 md:bottom-20 lg:bottom-24 z-10 flex items-end ml-4 md:ml-6 lg:ml-8 scroll-slide-right hover-lift hover-bounce transition-all ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '600ms' }}>
-            <img
-              src={joinProvider4}
-              alt="Service Provider 4"
+              <img
+                src={joinProvider4}
+                alt="Service Provider 4"
               className="w-32 md:w-44 lg:w-56 h-auto object-contain hover-scale transition-transform duration-300"
-            />
+              />
           </div>
         </div>
       </div>

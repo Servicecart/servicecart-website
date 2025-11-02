@@ -75,7 +75,7 @@ const Header = () => {
             <Link 
               to="/"
               onClick={handleHomeClick}
-              className="text-3xl font-bold text-[#8A56E8] whitespace-nowrap hover:opacity-80 transition-opacity cursor-pointer"
+                className="text-3xl font-bold text-[#8A56E8] whitespace-nowrap hover:opacity-80 transition-opacity"
               style={{ fontFamily: '"Servicecart Bold", sans-serif' }}
             >
               Servicecart

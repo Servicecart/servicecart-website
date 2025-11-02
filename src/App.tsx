@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
+import CustomCursor from './components/CustomCursor'
 import Home from './pages/Home'
 import TermsAndConditions from './pages/TermsAndConditions'
 import PrivacyPolicy from './pages/PrivacyPolicy'
@@ -10,6 +11,8 @@ import VulnerabilityDisclosure from './pages/VulnerabilityDisclosure'
 function App() {
   return (
     <BrowserRouter>
+      {/* Custom Cursor - Applied to all pages */}
+      <CustomCursor />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/legal/terms-and-conditions" element={<TermsAndConditions />} />

@@ -1,4 +1,6 @@
-import { Phone, Mail, MessageCircle, Instagram, Twitter, Linkedin } from 'lucide-react'
+import { Phone, Mail, MessageCircle } from 'lucide-react'
+import { FaInstagram, FaLinkedin } from 'react-icons/fa'
+import { SiCrunchbase } from 'react-icons/si'
 import { Link } from 'react-router-dom'
 import { trackContact, trackSocial, trackNavigation } from '../utils/analytics'
 
@@ -53,28 +55,34 @@ const Footer = () => {
             {/* Right Side - Social Media Icons */}
             <div className="flex items-center gap-3 sm:gap-4">
               <a
-                href="#"
+                href="https://www.instagram.com/servicecart_sc/"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => trackSocial('instagram')}
                 aria-label="Instagram"
                 className="w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center hover-lift hover-bounce transition-all"
               >
-                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
+                <FaInstagram className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
               </a>
               <a
-                href="#"
-                onClick={() => trackSocial('twitter')}
-                aria-label="Twitter"
-                className="w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center hover-lift hover-bounce transition-all"
-              >
-                <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
-              </a>
-              <a
-                href="#"
+                href="https://in.linkedin.com/company/servicecartcompany"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => trackSocial('linkedin')}
                 aria-label="LinkedIn"
                 className="w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center hover-lift hover-bounce transition-all"
               >
-                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
+                <FaLinkedin className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
+              </a>
+              <a
+                href="https://www.crunchbase.com/organization/hd-software-house"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackSocial('crunchbase')}
+                aria-label="Crunchbase"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center hover-lift hover-bounce transition-all"
+              >
+                <SiCrunchbase className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
               </a>
             </div>
           </div>

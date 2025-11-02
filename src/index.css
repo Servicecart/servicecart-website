@@ -11,6 +11,19 @@
   body {
     @apply text-gray-900;
     font-family: 'Inter', sans-serif;
+    /* Hide default cursor when custom cursor is active */
+    cursor: none;
+  }
+  
+  /* Hide cursor on all interactive elements when custom cursor is active */
+  a, button, input, textarea, select, [role="button"], [role="link"] {
+    cursor: none !important;
+  }
+  
+  /* Custom cursor hover state */
+  .cursor-hover {
+    border-color: #8A56E8;
+    background-color: rgba(138, 86, 232, 0.1);
   }
   
   /* Ensure all text elements use Inter by default */

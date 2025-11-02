@@ -1,5 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip">
+      <circle cx="50" cy="50" r="48"/>
+    </clipPath>
+  </defs>
   <rect width="100" height="100" rx="20" fill="#8A56E8"/>
-  <text x="50" y="65" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="white" text-anchor="middle">S</text>
+  <!-- Wolf silhouette/icon -->
+  <circle cx="50" cy="40" r="12" fill="white" opacity="0.9"/>
+  <ellipse cx="35" cy="35" rx="5" ry="8" fill="white" opacity="0.9"/>
+  <ellipse cx="65" cy="35" rx="5" ry="8" fill="white" opacity="0.9"/>
+  <ellipse cx="50" cy="55" rx="15" ry="20" fill="white" opacity="0.9"/>
+  <!-- Wolf nose -->
+  <circle cx="50" cy="42" r="2" fill="#8A56E8"/>
+  <!-- Eyes -->
+  <circle cx="45" cy="38" r="1.5" fill="#8A56E8"/>
+  <circle cx="55" cy="38" r="1.5" fill="#8A56E8"/>
 </svg>
-
