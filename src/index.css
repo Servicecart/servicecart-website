@@ -18,6 +18,13 @@
   /* Hide cursor on all interactive elements when custom cursor is active */
   a, button, input, textarea, select, [role="button"], [role="link"] {
     cursor: none !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Ensure links and buttons are clickable */
+  a, button, [role="button"], [role="link"] {
+    position: relative;
+    z-index: 1;
   }
   
   /* Custom cursor hover state */

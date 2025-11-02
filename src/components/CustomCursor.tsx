@@ -64,10 +64,13 @@ const CustomCursor = () => {
     <>
       {/* Wolf Cursor Image - Main Cursor */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 pointer-events-none"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
+          zIndex: 9999,
+          pointerEvents: 'none',
+          touchAction: 'none',
         }}
         animate={{
           scale: isClicking ? 0.8 : isHovering ? 1.3 : 1,
@@ -84,20 +87,28 @@ const CustomCursor = () => {
         <img
           src={wolfImage}
           alt="Wolf Cursor"
-          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain drop-shadow-lg"
+          className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain drop-shadow-lg pointer-events-none"
           style={{
             filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3))',
+            pointerEvents: 'none',
+            userSelect: 'none',
+            WebkitUserSelect: 'none',
           }}
+          loading="eager"
+          draggable={false}
         />
       </motion.div>
 
       {/* Hover Effect Ring - Appears on interactive elements */}
       {isHovering && (
         <motion.div
-          className="fixed top-0 left-0 w-24 h-24 rounded-full border-2 border-purple-400/50 pointer-events-none z-[9998]"
+          className="fixed top-0 left-0 w-24 h-24 rounded-full border-2 border-purple-400/50 pointer-events-none"
           style={{
             x: cursorXSpring,
             y: cursorYSpring,
+            zIndex: 9998,
+            pointerEvents: 'none',
+            touchAction: 'none',
           }}
           initial={{ scale: 0, opacity: 0 }}
           animate={{
@@ -119,10 +130,13 @@ const CustomCursor = () => {
       {/* Click Ripple Effect */}
       {isClicking && (
         <motion.div
-          className="fixed top-0 left-0 w-20 h-20 rounded-full border-2 border-purple-500/60 pointer-events-none z-[9998]"
+          className="fixed top-0 left-0 w-20 h-20 rounded-full border-2 border-purple-500/60 pointer-events-none"
           style={{
             x: cursorXSpring,
             y: cursorYSpring,
+            zIndex: 9998,
+            pointerEvents: 'none',
+            touchAction: 'none',
           }}
           initial={{ scale: 0.8, opacity: 1 }}
           animate={{ scale: 1.8, opacity: 0 }}
@@ -132,10 +146,13 @@ const CustomCursor = () => {
 
       {/* Smooth Trail Effect */}
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 rounded-full bg-purple-500/20 pointer-events-none z-[9997] blur-md"
+        className="fixed top-0 left-0 w-10 h-10 rounded-full bg-purple-500/20 pointer-events-none blur-md"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
+          zIndex: 9997,
+          pointerEvents: 'none',
+          touchAction: 'none',
         }}
         animate={{
           scale: isHovering ? 1.5 : 1,
