@@ -107,7 +107,7 @@ const ServiceCategories = () => {
     <section 
       id="what-we-do"
       ref={sectionRef}
-      className={`py-12 md:py-16 bg-white transition-all duration-700 ${
+      className={`hidden md:block py-12 md:py-16 bg-white transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >

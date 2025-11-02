@@ -53,7 +53,7 @@ const Footer = () => {
         {/* Bottom Section - Contact Information */}
         <div className="border-t border-gray-600/50 pt-20 pb-12">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-16 text-white">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-12 md:mb-16 text-white">
               We're just one call away
             </h2>
             

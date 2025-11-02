@@ -113,10 +113,10 @@ const WhyJoinUs = () => {
         <div className="container mx-auto px-4 max-w-6xl relative">
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-10">
-          <h2 className="text-[3rem] font-bold text-white mb-2">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
             Why Join Us?
           </h2>
-          <p className="text-[1.125rem] text-white font-normal max-w-4xl mx-auto">
+          <p className="text-base md:text-lg text-white font-normal max-w-4xl mx-auto">
             We know the problems, service providers face and we are here to end it through
           </p>
         </div>
@@ -125,7 +125,7 @@ const WhyJoinUs = () => {
         <div className="flex flex-col md:flex-row gap-8 md:gap-10 mb-8 md:mb-10">
           {/* Card 1: Get More Customers */}
           <div className="bg-white rounded-xl pt-6 px-6 pb-0 flex-1 shadow-lg flex flex-col h-auto">
-            <h3 className="text-[1.25rem] font-bold text-black mb-4 text-center">
+            <h3 className="text-lg md:text-xl font-bold text-black mb-4 text-center">
               Get More Customers
             </h3>
             <div className="flex items-end justify-center flex-grow mt-auto min-h-0">
@@ -139,7 +139,7 @@ const WhyJoinUs = () => {
 
           {/* Card 2: Earn More Money */}
           <div className="bg-white rounded-xl pt-6 px-6 pb-0 flex-1 shadow-lg flex flex-col h-auto">
-            <h3 className="text-[1.25rem] font-bold text-black mb-4 text-center">
+            <h3 className="text-lg md:text-xl font-bold text-black mb-4 text-center">
               Earn More Money
             </h3>
             <div className="flex items-end justify-center flex-grow mt-auto min-h-0">
@@ -153,7 +153,7 @@ const WhyJoinUs = () => {
 
           {/* Card 3: Keep More Profits */}
           <div className="bg-white rounded-xl pt-6 px-6 pb-0 flex-1 shadow-lg flex flex-col h-auto">
-            <h3 className="text-[1.25rem] font-bold text-black mb-4 text-center">
+            <h3 className="text-lg md:text-xl font-bold text-black mb-4 text-center">
               Keep More Profits
             </h3>
             <div className="flex items-end justify-center flex-grow mt-auto min-h-0">
@@ -171,22 +171,22 @@ const WhyJoinUs = () => {
           <div className="bg-white rounded-[25px] p-4 md:p-5 shadow-lg">
             <div className="text-center pt-4 pb-4">
               {/* Main Earnings Text - Green, Very Large, Bold */}
-              <h4 className="text-[2.5rem] md:text-[3rem] font-bold text-[#66CC99] mb-3">
+              <h4 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#66CC99] mb-3">
                 Earn upto Rs.40,000/pm
               </h4>
               
               {/* Supporting Text - Dark Gray/Black, Medium Size */}
-              <p className="text-[1.125rem] md:text-[1.125rem] text-black font-normal mb-2 max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-black font-normal mb-2 max-w-2xl mx-auto">
                 Join 500+ service providers already powering the future of home-commerce.
               </p>
               
               {/* Disclaimer Text - Dark Gray, Smaller, Italic */}
-              <p className="text-[0.875rem] text-gray-600 italic mb-4">
+              <p className="text-sm text-gray-600 italic mb-4">
                 *Earnings are average estimates and may vary*
               </p>
               
               {/* Call-to-Action Button - Purple Background, White Text, Substantial Width and Height */}
-              <button className="bg-[#6A3E9B] hover:bg-[#5a2d8b] text-white font-bold text-[1.125rem] px-16 py-5 rounded-[20px] transition-colors duration-300 shadow-md w-[65%] max-w-[400px]">
+              <button className="bg-[#6A3E9B] hover:bg-[#5a2d8b] text-white font-bold text-base md:text-lg px-8 md:px-16 py-4 md:py-5 rounded-[20px] transition-colors duration-300 shadow-md w-full md:w-[65%] max-w-[400px]">
                 Apply as Service Provider
               </button>
             </div>

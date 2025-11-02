@@ -16,7 +16,9 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative">
+      {/* Purple background overlay for top section */}
+      <div className="absolute top-0 left-0 right-0 h-[500px] bg-[#3E2061] z-0 pointer-events-none"></div>
       <Header />
       <Hero />
       <ServiceCategories />

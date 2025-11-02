@@ -82,10 +82,10 @@ const Mission = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.65fr_1fr] gap-8 md:gap-12 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.65fr_1fr] gap-8 md:gap-12">
           {/* Left Section - YouTube Video Player (60-65% width) */}
-          <div className="relative w-full h-full flex">
-            <div className="relative rounded-xl overflow-hidden bg-gray-100 shadow-lg group w-full h-full">
+          <div className="relative w-full">
+            <div className="relative rounded-xl overflow-hidden bg-gray-100 shadow-lg group w-full" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 ref={iframeRef}
                 src={embedUrl}
@@ -99,11 +99,11 @@ const Mission = () => {
           </div>
 
           {/* Right Section - Single Card with Mission Text and Team Photo (35-40% width) */}
-          <div className="w-full flex flex-col h-full">
-            <div className="bg-gray-50 rounded-2xl overflow-hidden flex flex-col h-full shadow-lg">
+          <div className="w-full flex flex-col">
+            <div className="bg-gray-50 rounded-2xl overflow-hidden flex flex-col shadow-lg min-h-[400px] md:min-h-[500px]">
               {/* Mission Statement - Top Section with padding */}
               <div className="p-6 md:p-8 flex-shrink-0">
-                <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 md:mb-6 text-left">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-4 md:mb-6 text-left">
                   Our Mission
                 </h2>
                 <p className="text-base md:text-lg text-gray-700 leading-relaxed text-left">

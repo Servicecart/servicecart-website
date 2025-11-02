@@ -81,10 +81,10 @@ const WhyChooseUs = () => {
           <div className="inline-block bg-[#EFE7F9] text-[#6A2E9A] px-6 md:px-8 py-2 md:py-2.5 rounded-full text-sm md:text-base font-normal mb-6">
             Why us
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Why Choose Servicecart
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
             We have got not one but 6 reasons and here's why:
           </p>
         </div>
