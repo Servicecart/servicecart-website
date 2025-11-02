@@ -1,8 +1,33 @@
 import { ChevronDown } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { trackFAQ, trackSectionView } from '../utils/analytics'
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          trackSectionView('faq')
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
 
   const faqs = [
     {
@@ -40,14 +65,22 @@ const FAQ = () => {
   ]
 
   const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index)
+    const wasOpen = openIndex === index
+    setOpenIndex(wasOpen ? null : index)
+    trackFAQ(wasOpen ? 'close' : 'open', faqs[index].question)
   }
 
   return (
-    <section className="py-20 bg-white">
+    <section 
+      id="faqs" 
+      ref={sectionRef}
+      className={`py-20 bg-white transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900">
             All your questions answered
           </h2>
         </div>

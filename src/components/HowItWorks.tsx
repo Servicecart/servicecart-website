@@ -65,7 +65,7 @@ const HowItWorks = () => {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-20 bg-white">
+    <section id="how-it-works" ref={sectionRef} className="py-12 md:py-20 bg-white">
       <div className="container mx-auto px-4">
         {/* How it works Pill */}
         <div 
@@ -75,8 +75,8 @@ const HowItWorks = () => {
             visibleElements.has('pill') ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
           }`}
         >
-          <div className="bg-[#F3E8FF] rounded-full px-6 md:px-8 py-2 md:py-3">
-            <p className="text-sm md:text-base font-semibold text-[#3E2061]">
+          <div className="bg-[#EFE7F9] rounded-full px-6 md:px-8 py-2 md:py-2.5">
+            <p className="text-sm md:text-base font-normal text-[#6A2E9A]">
               How it works
             </p>
           </div>
