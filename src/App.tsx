@@ -3,6 +3,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { Analytics } from '@vercel/analytics/react'
 import { lazy, Suspense } from 'react'
 import CustomCursor from './components/CustomCursor'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 
 // Lazy load pages for better performance
@@ -16,6 +17,8 @@ function App() {
   return (
     <HelmetProvider>
       <BrowserRouter>
+        {/* Scroll to top on route change */}
+        <ScrollToTop />
         {/* Custom Cursor - Applied to all pages */}
         <CustomCursor />
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-white"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div></div>}>

@@ -15,8 +15,12 @@ const Footer = () => {
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6 md:gap-8">
               <Link 
                 to="/" 
-                onClick={() => trackNavigation('footer_home')}
-                className="text-white font-bold text-base sm:text-lg md:text-xl hover:opacity-80 hover-scale transition-all whitespace-nowrap"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  trackNavigation('footer_home')
+                }}
+                className="text-white font-bold text-base sm:text-lg md:text-xl hover:opacity-80 hover-scale transition-all whitespace-nowrap relative z-10 cursor-pointer"
+                style={{ pointerEvents: 'auto' }}
               >
                 Servicecart
               </Link>
@@ -24,6 +28,7 @@ const Footer = () => {
                 href="/#why-join-us" 
                 onClick={(e) => {
                   e.preventDefault()
+                  e.stopPropagation()
                   if (window.location.pathname !== '/') {
                     window.location.href = '/#why-join-us'
                   } else {
@@ -32,21 +37,30 @@ const Footer = () => {
                   }
                   trackNavigation('join_provider')
                 }}
-                className="text-white text-sm sm:text-base font-normal hover:opacity-80 hover-scale transition-all whitespace-nowrap"
+                className="text-white text-sm sm:text-base font-normal hover:opacity-80 hover-scale transition-all whitespace-nowrap relative z-10 cursor-pointer"
+                style={{ pointerEvents: 'auto' }}
               >
                 Join us as a Provider
               </a>
               <Link 
                 to="/legal/terms-and-conditions" 
-                onClick={() => trackNavigation('terms')}
-                className="text-white text-sm sm:text-base font-normal hover:opacity-80 hover-scale transition-all whitespace-nowrap"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  trackNavigation('terms')
+                }}
+                className="text-white text-sm sm:text-base font-normal hover:opacity-80 hover-scale transition-all whitespace-nowrap relative z-10 cursor-pointer"
+                style={{ pointerEvents: 'auto' }}
               >
                 Terms of Use
               </Link>
               <Link 
                 to="/legal/privacy-policy" 
-                onClick={() => trackNavigation('privacy')}
-                className="text-white text-sm sm:text-base font-normal hover:opacity-80 hover-scale transition-all whitespace-nowrap"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  trackNavigation('privacy')
+                }}
+                className="text-white text-sm sm:text-base font-normal hover:opacity-80 hover-scale transition-all whitespace-nowrap relative z-10 cursor-pointer"
+                style={{ pointerEvents: 'auto' }}
               >
                 Privacy Policy
               </Link>
@@ -147,22 +161,34 @@ const Footer = () => {
             <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 sm:gap-4 md:gap-6 text-white text-xs sm:text-sm md:text-base order-1 md:order-2">
               <Link 
                 to="/legal/equal-opportunity-policy" 
-                onClick={() => trackNavigation('equal_opportunity')}
-                className="hover:opacity-80 transition-opacity whitespace-nowrap"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  trackNavigation('equal_opportunity')
+                }}
+                className="hover:opacity-80 transition-opacity whitespace-nowrap relative z-10 cursor-pointer"
+                style={{ pointerEvents: 'auto' }}
               >
                 Equal Opportunity Policy
               </Link>
               <Link 
                 to="/legal/refund-and-cancellation" 
-                onClick={() => trackNavigation('refund_policy')}
-                className="hover:opacity-80 transition-opacity whitespace-nowrap"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  trackNavigation('refund_policy')
+                }}
+                className="hover:opacity-80 transition-opacity whitespace-nowrap relative z-10 cursor-pointer"
+                style={{ pointerEvents: 'auto' }}
               >
                 Refund & Cancellation Policy
               </Link>
               <Link 
                 to="/policy/vulnerability-disclosure" 
-                onClick={() => trackNavigation('vulnerability_policy')}
-                className="hover:opacity-80 transition-opacity whitespace-nowrap"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  trackNavigation('vulnerability_policy')
+                }}
+                className="hover:opacity-80 transition-opacity whitespace-nowrap relative z-10 cursor-pointer"
+                style={{ pointerEvents: 'auto' }}
               >
                 Vulnerability Disclosure Policy
               </Link>

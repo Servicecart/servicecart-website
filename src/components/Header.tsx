@@ -55,17 +55,23 @@ const Header = () => {
             <div className="flex items-center gap-8">
               <a 
                 href="#services" 
-                onClick={(e) => handleNavClick(e, 'services')}
-                className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap"
-                style={{ fontFamily: '"Inter", sans-serif' }}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleNavClick(e, 'services')
+                }}
+                className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap relative z-10 cursor-pointer"
+                style={{ fontFamily: '"Inter", sans-serif', pointerEvents: 'auto' }}
               >
                 Services
               </a>
               <a 
                 href="#how-it-works" 
-                onClick={(e) => handleNavClick(e, 'how-it-works')}
-                className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap"
-                style={{ fontFamily: '"Inter", sans-serif' }}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleNavClick(e, 'how-it-works')
+                }}
+                className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap relative z-10 cursor-pointer"
+                style={{ fontFamily: '"Inter", sans-serif', pointerEvents: 'auto' }}
               >
                 How It Works
               </a>
@@ -74,9 +80,12 @@ const Header = () => {
             {/* Center Brand Name */}
             <Link 
               to="/"
-              onClick={handleHomeClick}
-                className="text-3xl font-bold text-[#8A56E8] whitespace-nowrap hover:opacity-80 transition-opacity"
-              style={{ fontFamily: '"Servicecart Bold", sans-serif' }}
+              onClick={(e) => {
+                e.stopPropagation()
+                handleHomeClick(e)
+              }}
+              className="text-3xl font-bold text-[#8A56E8] whitespace-nowrap hover:opacity-80 transition-opacity relative z-10 cursor-pointer"
+              style={{ fontFamily: '"Servicecart Bold", sans-serif', pointerEvents: 'auto' }}
             >
               Servicecart
             </Link>
@@ -85,17 +94,23 @@ const Header = () => {
             <div className="flex items-center gap-8">
               <a 
                 href="#why-us" 
-                onClick={(e) => handleNavClick(e, 'why-us')}
-                className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap"
-                style={{ fontFamily: '"Inter", sans-serif' }}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleNavClick(e, 'why-us')
+                }}
+                className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap relative z-10 cursor-pointer"
+                style={{ fontFamily: '"Inter", sans-serif', pointerEvents: 'auto' }}
               >
                 Why Choose Us
               </a>
               <a 
                 href="#download" 
-                onClick={(e) => handleNavClick(e, 'download')}
-                className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap"
-                style={{ fontFamily: '"Inter", sans-serif' }}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleNavClick(e, 'download')
+                }}
+                className="text-black font-normal text-base hover:opacity-80 transition-opacity whitespace-nowrap relative z-10 cursor-pointer"
+                style={{ fontFamily: '"Inter", sans-serif', pointerEvents: 'auto' }}
               >
                 Download
               </a>
@@ -110,9 +125,12 @@ const Header = () => {
           {/* Brand Name */}
           <Link 
             to="/"
-            onClick={handleHomeClick}
-            className="text-2xl font-bold text-[#8A56E8] hover:opacity-80 transition-opacity"
-            style={{ fontFamily: '"Servicecart Bold", sans-serif' }}
+            onClick={(e) => {
+              e.stopPropagation()
+              handleHomeClick(e)
+            }}
+            className="text-2xl font-bold text-[#8A56E8] hover:opacity-80 transition-opacity relative z-10 cursor-pointer"
+            style={{ fontFamily: '"Servicecart Bold", sans-serif', pointerEvents: 'auto' }}
           >
             Servicecart
           </Link>
@@ -139,9 +157,12 @@ const Header = () => {
                 <a
                   key={link.id}
                   href={link.href}
-                  onClick={(e) => handleNavClick(e, link.id)}
-                  className="block px-6 py-3 text-black font-normal text-base hover:bg-gray-100 transition-colors"
-                  style={{ fontFamily: '"Inter", sans-serif' }}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    handleNavClick(e, link.id)
+                  }}
+                  className="block px-6 py-3 text-black font-normal text-base hover:bg-gray-100 transition-colors relative z-10 cursor-pointer"
+                  style={{ fontFamily: '"Inter", sans-serif', pointerEvents: 'auto' }}
                 >
                   {link.label}
                 </a>

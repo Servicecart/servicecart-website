@@ -21,10 +21,17 @@
     pointer-events: auto !important;
   }
   
-  /* Ensure links and buttons are clickable */
-  a, button, [role="button"], [role="link"] {
+  /* Ensure links and buttons are clickable - higher z-index */
+  a, button, [role="button"], [role="link"], Link {
     position: relative;
-    z-index: 1;
+    z-index: 10000 !important;
+    pointer-events: auto !important;
+  }
+  
+  /* React Router Links - ensure they work */
+  a[href], Link {
+    pointer-events: auto !important;
+    cursor: none !important;
   }
   
   /* Custom cursor hover state */

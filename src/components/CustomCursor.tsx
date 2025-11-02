@@ -71,6 +71,7 @@ const CustomCursor = () => {
           zIndex: 9999,
           pointerEvents: 'none',
           touchAction: 'none',
+          willChange: 'transform',
         }}
         animate={{
           scale: isClicking ? 0.8 : isHovering ? 1.3 : 1,
