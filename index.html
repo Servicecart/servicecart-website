@@ -57,6 +57,27 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     
+    <!-- Disable browser scroll restoration and ensure page starts at top -->
+    <script>
+      // Disable automatic scroll restoration
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      
+      // Ensure page starts at top on load
+      window.addEventListener('load', function() {
+        // Only scroll to top if there's no hash in the URL
+        if (!window.location.hash) {
+          window.scrollTo(0, 0);
+        }
+      });
+      
+      // Also scroll to top immediately if page is already loaded
+      if (document.readyState === 'complete' && !window.location.hash) {
+        window.scrollTo(0, 0);
+      }
+    </script>
+    
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {

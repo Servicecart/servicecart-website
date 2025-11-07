@@ -11,33 +11,26 @@
   body {
     @apply text-gray-900;
     font-family: 'Inter', sans-serif;
-    /* Hide default cursor when custom cursor is active */
-    cursor: none;
+    cursor: default;
   }
   
-  /* Hide cursor on all interactive elements when custom cursor is active */
-  a, button, input, textarea, select, [role="button"], [role="link"] {
-    cursor: none !important;
-    pointer-events: auto !important;
-  }
-  
-  /* Ensure links and buttons are clickable - higher z-index */
+  /* Normal cursor styles for interactive elements */
   a, button, [role="button"], [role="link"], Link {
-    position: relative;
-    z-index: 10000 !important;
-    pointer-events: auto !important;
+    cursor: pointer;
   }
   
-  /* React Router Links - ensure they work */
-  a[href], Link {
-    pointer-events: auto !important;
-    cursor: none !important;
+  input, textarea, select {
+    cursor: text;
   }
   
-  /* Custom cursor hover state */
-  .cursor-hover {
-    border-color: #8A56E8;
-    background-color: rgba(138, 86, 232, 0.1);
+  input[type="button"], input[type="submit"], input[type="reset"], button {
+    cursor: pointer;
+  }
+  
+  /* Disabled elements */
+  a:disabled, button:disabled, input:disabled, textarea:disabled, select:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
   }
   
   /* Ensure all text elements use Inter by default */

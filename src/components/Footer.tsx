@@ -43,6 +43,17 @@ const Footer = () => {
                 Join us as a Provider
               </a>
               <Link 
+                to="/grow-with-servicecart" 
+                onClick={(e) => {
+                  e.stopPropagation()
+                  trackNavigation('grow_with_servicecart')
+                }}
+                className="text-white text-sm sm:text-base font-normal hover:opacity-80 hover-scale transition-all whitespace-nowrap relative z-10 cursor-pointer"
+                style={{ pointerEvents: 'auto' }}
+              >
+                Grow with Servicecart
+              </Link>
+              <Link 
                 to="/legal/terms-and-conditions" 
                 onClick={(e) => {
                   e.stopPropagation()
