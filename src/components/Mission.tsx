@@ -52,6 +52,8 @@ const Mission = () => {
 
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
+  const videoContainerRef = useRef<HTMLDivElement>(null)
+  const cardContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -74,6 +76,20 @@ const Mission = () => {
     }
   }, [])
 
+  // Sync heights between video and card
+  useEffect(() => {
+    const syncHeights = () => {
+      if (videoContainerRef.current && cardContainerRef.current) {
+        const videoHeight = videoContainerRef.current.offsetHeight
+        cardContainerRef.current.style.height = `${videoHeight}px`
+      }
+    }
+
+    syncHeights()
+    window.addEventListener('resize', syncHeights)
+    return () => window.removeEventListener('resize', syncHeights)
+  }, [isVisible])
+
   return (
     <section 
       ref={sectionRef}
@@ -84,8 +100,8 @@ const Mission = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-[1.65fr_1fr] gap-8 md:gap-12">
           {/* Left Section - YouTube Video Player (60-65% width) */}
-          <div className="relative w-full">
-            <div className="relative rounded-xl overflow-hidden bg-gray-100 shadow-lg group w-full" style={{ paddingBottom: '56.25%' }}>
+          <div ref={videoContainerRef} className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <div className="absolute inset-0 rounded-xl overflow-hidden bg-gray-100 shadow-lg group">
               <iframe
                 ref={iframeRef}
                 src={embedUrl}
@@ -93,14 +109,14 @@ const Mission = () => {
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                className="absolute top-0 left-0 w-full h-full"
+                className="w-full h-full"
               ></iframe>
             </div>
           </div>
 
           {/* Right Section - Single Card with Mission Text and Team Photo (35-40% width) */}
-          <div className="w-full flex flex-col">
-            <div className="bg-gray-50 rounded-2xl overflow-hidden flex flex-col shadow-lg min-h-[400px] md:min-h-[500px]">
+          <div ref={cardContainerRef} className="w-full flex flex-col">
+            <div className="bg-white rounded-2xl overflow-hidden flex flex-col shadow-lg h-full">
               {/* Mission Statement - Top Section with padding */}
               <div className="p-6 md:p-8 flex-shrink-0">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-4 md:mb-6 text-left">
@@ -112,7 +128,7 @@ const Mission = () => {
               </div>
 
               {/* Team Photo - Fills entire bottom section with no gaps */}
-              <div className="flex-grow flex items-end justify-center overflow-hidden w-full">
+              <div className="flex-grow flex items-end justify-center overflow-hidden w-full" style={{ minHeight: 0 }}>
                 <img
                   src={teamImage}
                   alt="Servicecart Team"
