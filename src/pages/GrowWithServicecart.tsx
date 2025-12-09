@@ -147,10 +147,10 @@ const GrowWithServicecart = () => {
         </section>
 
         {/* Benefits of partnering with us Section */}
-        <section className="relative bg-gradient-to-b from-[#3E2061] to-[#161424] py-16 md:py-20 lg:py-24">
+        <section className="relative bg-gradient-to-br from-gray-50 via-white to-gray-50 py-16 md:py-20 lg:py-24">
           <div className="container mx-auto px-4 max-w-6xl relative">
             <div className={`text-center mb-8 md:mb-10 scroll-reveal scroll-reveal-from-bottom ${isVisible ? 'visible' : ''}`}>
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2">
                 Benefits of partnering with us
               </h2>
             </div>
@@ -195,10 +195,10 @@ const GrowWithServicecart = () => {
           </div>
         </section>
 
-        {/* Start your Franchise now CTA Section - Matching WhyJoinUs CTA style */}
-        <section className="relative bg-gradient-to-b from-[#3E2061] to-[#161424] py-4 md:py-8 lg:py-10">
+        {/* Start your Franchise now CTA Section - Matching website theme */}
+        <section className="relative bg-gradient-to-b from-[#3E2061] to-[#161424] py-16 md:py-20 lg:py-24">
           <div className="container mx-auto px-4 max-w-6xl relative">
-            <div className={`w-full mx-auto mb-4 scroll-fade-scale ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '500ms' }}>
+            <div className={`w-full mx-auto scroll-fade-scale ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '500ms' }}>
               <div className="bg-white rounded-[25px] p-4 md:p-5 shadow-lg hover-lift hover-glow transition-all duration-300">
                 <div className="text-center pt-4 pb-4">
                   {/* Main Title - Green, Very Large, Bold */}
@@ -224,11 +224,11 @@ const GrowWithServicecart = () => {
           </div>
         </section>
 
-        {/* Who can apply Section - Matching footer gradient */}
-        <section className="relative bg-gradient-to-b from-[#3E2061] via-[#281A3B] to-[#281A3B] py-16 md:py-20 lg:py-24">
+        {/* Who can apply Section - Professional Background */}
+        <section className="relative bg-white py-16 md:py-20 lg:py-24">
           <div className="container mx-auto px-4 max-w-6xl relative">
             <div className={`text-center mb-8 md:mb-10 scroll-reveal scroll-reveal-from-bottom ${isVisible ? 'visible' : ''}`}>
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2">
                 Who can apply
               </h2>
             </div>
